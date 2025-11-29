@@ -6,7 +6,9 @@ import {
   Search, 
   Settings, 
   User,
-  Activity
+  Activity,
+  Video,
+  Shield
 } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -70,6 +72,17 @@ const Header: React.FC = () => {
                 <span>Defect Detection</span>
               </Link>
               <Link 
+                to="/detection-layer" 
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                  isActiveLink('/detection-layer') 
+                    ? 'bg-purple-100 text-purple-700' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
+              >
+                <Video className="w-4 h-4" />
+                <span>Detection Layer</span>
+              </Link>
+              <Link 
                 to="/optimizer" 
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
                   isActiveLink('/optimizer') 
@@ -79,6 +92,17 @@ const Header: React.FC = () => {
               >
                 <Activity className="w-4 h-4" />
                 <span>Optimizer Agent</span>
+              </Link>
+              <Link 
+                to="/safety-layer" 
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                  isActiveLink('/safety-layer') 
+                    ? 'bg-amber-100 text-amber-700' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
+              >
+                <Shield className="w-4 h-4" />
+                <span>Safety Layer</span>
               </Link>
             </div>
           </nav>
@@ -109,7 +133,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div className="md:hidden border-t border-gray-200 px-4 py-2">
-        <div className="grid grid-cols-4 gap-1">
+        <div className="grid grid-cols-6 gap-1">
           <Link 
             to="/dashboard" 
             className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
@@ -144,6 +168,17 @@ const Header: React.FC = () => {
             <span>Defect</span>
           </Link>
           <Link 
+            to="/detection-layer" 
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
+              isActiveLink('/detection-layer') 
+                ? 'bg-purple-100 text-purple-700' 
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
+          >
+            <Video className="w-4 h-4 mb-1" />
+            <span>Layer</span>
+          </Link>
+          <Link 
             to="/optimizer" 
             className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
               isActiveLink('/optimizer') 
@@ -153,6 +188,17 @@ const Header: React.FC = () => {
           >
             <Settings className="w-4 h-4 mb-1" />
             <span>Optimizer</span>
+          </Link>
+          <Link 
+            to="/safety-layer" 
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
+              isActiveLink('/safety-layer') 
+                ? 'bg-amber-100 text-amber-700' 
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
+          >
+            <Shield className="w-4 h-4 mb-1" />
+            <span>Safety</span>
           </Link>
         </div>
       </div>
