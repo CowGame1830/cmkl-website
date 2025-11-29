@@ -14,7 +14,7 @@ const Home: React.FC = () => {
             <div className="text-center lg:text-left animate-fade-in">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-6">
                 Welcome to{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">AI Factory</span>
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">VALZ</span>
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Advanced AI-powered factory management system with real-time monitoring, 
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
             <div className="relative animate-fade-in animation-delay-200">
               <div className="relative z-10">
                 <img 
-                  src="https://images.unsplash.com/photo-1565514020179-026b92c2a860?w=600&h=400&fit=crop" 
+                  src="https://st.depositphotos.com/1658121/1358/i/450/depositphotos_13583606-stock-photo-industrial-building-interior.jpg" 
                   alt="Modern factory floor"
                   className="rounded-2xl shadow-lg w-full"
                 />

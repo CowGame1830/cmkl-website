@@ -1,4 +1,4 @@
-// Type definitions for AI Factory Dashboard
+// Type definitions for VALZ Dashboard
 export interface User {
   id: number;
   name: string;

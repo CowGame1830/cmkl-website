@@ -29,7 +29,7 @@ const Header: React.FC = () => {
                 <Activity className="w-6 h-6 text-white" />
               </div>
               <div className="hidden sm:block">
-                <span className="text-xl font-bold text-gray-900">AI Factory</span>
+                <span className="text-xl font-bold text-gray-900">VALZ</span>
                 <div className="text-xs text-gray-500">Dashboard System</div>
               </div>
             </Link>
