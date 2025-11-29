@@ -13,8 +13,7 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const isActiveLink = (path: string) => {
-    return location.pathname === path || 
-           (path === '/dashboard' && location.pathname === '/');
+    return location.pathname === path;
   };
 
   return (

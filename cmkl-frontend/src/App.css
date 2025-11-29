@@ -9,6 +9,10 @@
 }
 
 /* Global body and html styling for consistent max-width layout */
+html {
+  scroll-behavior: auto; /* Disable smooth scrolling for instant navigation */
+}
+
 body {
   margin: 0;
   padding: 0;

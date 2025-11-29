@@ -112,7 +112,7 @@ const Dashboard: React.FC = () => {
                 <div className="zone-header">
                   <h3>{zone.name}</h3>
                   <span className={`zone-status ${getStatusColor(zone.status)}`}>
-                    {zone.status}
+                    {zone.status.charAt(0).toUpperCase() + zone.status.slice(1)}
                   </span>
                 </div>
                 <p className="zone-department">{zone.department}</p>

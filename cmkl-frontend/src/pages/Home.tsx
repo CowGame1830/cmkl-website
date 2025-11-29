@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
 import { BarChart3, Search } from 'lucide-react';
 
 const Home: React.FC = () => {
-  const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
