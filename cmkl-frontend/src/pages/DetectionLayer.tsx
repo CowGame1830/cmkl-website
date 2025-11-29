@@ -812,13 +812,20 @@ const DetectionLayer: React.FC = () => {
                     Your browser does not support the video tag.
                   </video>
                 ) : personCountResult.output_video_path ? (
-                  <video 
-                    src={`/videos/${personCountResult.output_video_path.split('\\').pop()}`}
-                    controls 
-                    className="output-video"
-                  >
-                    Your browser does not support the video tag.
-                  </video>
+                  (() => {
+                    const filename = personCountResult.output_video_path.replace(/^.*[\\/]/, '');
+                    const videoUrl = `/videos/${filename}?t=${Date.now()}`;
+                    return (
+                      <video 
+                        src={videoUrl}
+                        controls 
+                        className="output-video"
+                        key={videoUrl}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    );
+                  })()
                 ) : null}
                 {personCountResult.output_video_path && (
                   <p className="video-path-info">
