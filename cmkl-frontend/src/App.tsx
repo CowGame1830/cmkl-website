@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import DefectDetector from './pages/DefectDetector';
 import OptimizerAgent from './pages/OptimizerAgent';
 import Home from './pages/Home';
+import ComprehensiveDashboard from './pages/ComprehensiveDashboard';
 import './App.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/comprehensive" element={<ComprehensiveDashboard />} />
               <Route path="/defect-detector" element={<DefectDetector />} />
               <Route path="/optimizer" element={<OptimizerAgent />} />
             </Routes>

@@ -48,6 +48,17 @@ const Header: React.FC = () => {
                 <span>Dashboard</span>
               </Link>
               <Link 
+                to="/comprehensive" 
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
+                  isActiveLink('/comprehensive') 
+                    ? 'bg-purple-100 text-purple-700' 
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                }`}
+              >
+                <Activity className="w-4 h-4" />
+                <span>Live Dashboard</span>
+              </Link>
+              <Link 
                 to="/defect-detector" 
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
                   isActiveLink('/defect-detector') 
@@ -98,38 +109,49 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       <div className="md:hidden border-t border-gray-200 px-4 py-2">
-        <div className="flex space-x-1">
+        <div className="grid grid-cols-4 gap-1">
           <Link 
             to="/dashboard" 
-            className={`flex-1 flex items-center justify-center space-x-1 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
               isActiveLink('/dashboard') 
                 ? 'bg-blue-100 text-blue-700' 
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
-            <BarChart3 className="w-4 h-4" />
+            <BarChart3 className="w-4 h-4 mb-1" />
             <span>Dashboard</span>
           </Link>
           <Link 
+            to="/comprehensive" 
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
+              isActiveLink('/comprehensive') 
+                ? 'bg-purple-100 text-purple-700' 
+                : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+            }`}
+          >
+            <Activity className="w-4 h-4 mb-1" />
+            <span>Live</span>
+          </Link>
+          <Link 
             to="/defect-detector" 
-            className={`flex-1 flex items-center justify-center space-x-1 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
               isActiveLink('/defect-detector') 
                 ? 'bg-blue-100 text-blue-700' 
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
-            <Search className="w-4 h-4" />
+            <Search className="w-4 h-4 mb-1" />
             <span>Defect</span>
           </Link>
           <Link 
             to="/optimizer" 
-            className={`flex-1 flex items-center justify-center space-x-1 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
+            className={`flex flex-col items-center justify-center py-2 rounded-lg text-xs font-medium transition-colors duration-200 ${
               isActiveLink('/optimizer') 
                 ? 'bg-blue-100 text-blue-700' 
                 : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
             }`}
           >
-            <Activity className="w-4 h-4" />
+            <Settings className="w-4 h-4 mb-1" />
             <span>Optimizer</span>
           </Link>
         </div>

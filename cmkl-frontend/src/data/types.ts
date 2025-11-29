@@ -70,3 +70,55 @@ export interface NavigationItem {
   path: string;
   icon: string;
 }
+
+export interface ProductionMetrics {
+  todayProduced: number;
+  targetProduction: number;
+  defectRate: number;
+  targetDefectRate: number;
+  efficiency: number;
+  uptime: number;
+  energyConsumption: number;
+  co2Emissions: number;
+}
+
+export interface MachineStatus {
+  id: string;
+  name: string;
+  status: 'running' | 'idle' | 'maintenance' | 'warning' | 'error';
+  efficiency: number;
+  lastMaintenance: string;
+  nextMaintenance: string;
+}
+
+export interface EnergyData {
+  currentUsage: number;
+  peakUsage: number;
+  averageUsage: number;
+  hourlyConsumption: Array<{
+    time: string;
+    usage: number;
+  }>;
+}
+
+export interface QualityTrends {
+  weeklyDefectRates: Array<{
+    week: string;
+    rate: number;
+  }>;
+  defectCategories: Array<{
+    category: string;
+    count: number;
+    percentage: number;
+  }>;
+}
+
+export interface ScheduleItem {
+  id: string;
+  task: string;
+  type: 'maintenance' | 'audit' | 'training' | 'inventory' | 'meeting';
+  scheduledTime: string;
+  estimatedDuration: string;
+  assignedTo: string;
+  priority: 'low' | 'medium' | 'high';
+}

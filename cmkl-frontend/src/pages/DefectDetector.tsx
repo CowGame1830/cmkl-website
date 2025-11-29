@@ -1,20 +1,28 @@
 import React, { useState, useRef } from 'react';
 import { defectDetections } from '../data/mockData';
+import { sampleImages, detectionPrompts } from '../data/enhancedMockData';
 import type { DefectDetection } from '../data/types';
 import { 
   Search, 
   CheckCircle, 
   Clock,
   FileImage,
-  X
+  X,
+  Lightbulb,
+  Image,
+  Zap
 } from 'lucide-react';
 import './DefectDetector.css';
 
 const DefectDetector: React.FC = () => {
   const [prompt, setPrompt] = useState('');
   const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [selectedImageName, setSelectedImageName] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [results, setResults] = useState<DefectDetection[]>(defectDetections);
+  const [showSampleImages, setShowSampleImages] = useState(false);
+  const [showPromptSuggestions, setShowPromptSuggestions] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,9 +31,38 @@ const DefectDetector: React.FC = () => {
       const reader = new FileReader();
       reader.onload = (e) => {
         setImagePreview(e.target?.result as string);
+        setSelectedImageName(file.name);
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const handleSampleImageSelect = (image: typeof sampleImages[0]) => {
+    setImagePreview(image.url);
+    setSelectedImageName(image.name);
+    setShowSampleImages(false);
+  };
+
+  const handlePromptSelect = (selectedPrompt: string) => {
+    setPrompt(selectedPrompt);
+    setShowPromptSuggestions(false);
+  };
+
+  const getFilteredPrompts = () => {
+    if (selectedCategory === 'all') {
+      return detectionPrompts.flatMap(category => 
+        category.prompts.map(prompt => ({ prompt, category: category.category }))
+      );
+    }
+    const categoryData = detectionPrompts.find(cat => cat.category === selectedCategory);
+    return categoryData ? categoryData.prompts.map(prompt => ({ prompt, category: selectedCategory })) : [];
+  };
+
+  const getFilteredImages = () => {
+    if (selectedCategory === 'all') {
+      return sampleImages;
+    }
+    return sampleImages.filter(image => image.category === selectedCategory);
   };
 
   const handleAnalyze = async () => {
@@ -126,11 +163,60 @@ const DefectDetector: React.FC = () => {
         </div>
         
         <div className="input-section">
+          {/* Category Filter */}
+          <div className="category-filter">
+            <label>Industry Category:</label>
+            <select 
+              value={selectedCategory} 
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="category-select"
+            >
+              <option value="all">All Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="welding">Welding</option>
+              <option value="machining">Machining</option>
+              <option value="coating">Coating/Paint</option>
+              <option value="plastics">Plastics</option>
+              <option value="textile">Textile</option>
+              <option value="packaging">Packaging</option>
+            </select>
+          </div>
+
           <div className="input-group prompt-group">
             <div className="input-header">
               <label htmlFor="prompt">Detection Prompt</label>
-              <span className="input-hint">Be specific about defect types</span>
+              <div className="input-actions">
+                <span className="input-hint">Be specific about defect types</span>
+                <button
+                  type="button"
+                  className="suggestion-btn"
+                  onClick={() => setShowPromptSuggestions(!showPromptSuggestions)}
+                  title="View prompt suggestions"
+                >
+                  <Lightbulb className="w-4 h-4" />
+                  Suggestions
+                </button>
+              </div>
             </div>
+            
+            {showPromptSuggestions && (
+              <div className="prompt-suggestions">
+                <h4>Suggested Prompts for {selectedCategory === 'all' ? 'All Categories' : selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}:</h4>
+                <div className="suggestions-grid">
+                  {getFilteredPrompts().slice(0, 8).map((item, index) => (
+                    <div 
+                      key={index} 
+                      className="suggestion-item"
+                      onClick={() => handlePromptSelect(item.prompt)}
+                    >
+                      <span className="suggestion-category">{item.category}</span>
+                      <span className="suggestion-text">{item.prompt}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             <div className="prompt-input-wrapper">
               <textarea
                 id="prompt"
@@ -148,9 +234,42 @@ const DefectDetector: React.FC = () => {
 
           <div className="input-group upload-group">
             <div className="input-header">
-              <label>Upload Image</label>
-              <span className="input-hint">High-quality images work best</span>
+              <label>Upload or Select Image</label>
+              <div className="input-actions">
+                <span className="input-hint">High-quality images work best</span>
+                <button
+                  type="button"
+                  className="sample-images-btn"
+                  onClick={() => setShowSampleImages(!showSampleImages)}
+                  title="Choose from sample images"
+                >
+                  <Image className="w-4 h-4" />
+                  Sample Images
+                </button>
+              </div>
             </div>
+            
+            {showSampleImages && (
+              <div className="sample-images-grid">
+                <h4>Sample Images for {selectedCategory === 'all' ? 'All Categories' : selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}:</h4>
+                <div className="images-grid">
+                  {getFilteredImages().map((image) => (
+                    <div 
+                      key={image.id} 
+                      className="sample-image-item"
+                      onClick={() => handleSampleImageSelect(image)}
+                    >
+                      <img src={image.url} alt={image.name} />
+                      <div className="image-item-info">
+                        <span className="image-item-name">{image.name}</span>
+                        <span className="image-item-category">{image.category}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
             <div className={`upload-area ${imagePreview ? 'has-image' : ''}`}>
               {imagePreview ? (
                 <div className="image-preview-modern">
@@ -164,7 +283,7 @@ const DefectDetector: React.FC = () => {
                       <X size={16} />
                     </button>
                     <div className="image-info">
-                      <span className="image-name">Uploaded Image</span>
+                      <span className="image-name">{selectedImageName || 'Uploaded Image'}</span>
                     </div>
                   </div>
                 </div>
@@ -201,15 +320,24 @@ const DefectDetector: React.FC = () => {
               {isAnalyzing ? (
                 <>
                   <Clock className="w-4 h-4 animate-spin" />
-                  <span>Analyzing...</span>
+                  <span>AI Analysis in Progress...</span>
+                  <div className="progress-dots">
+                    <span></span><span></span><span></span>
+                  </div>
                 </>
               ) : (
                 <>
-                  <Search className="w-4 h-4" />
-                  <span>Start Analysis</span>
+                  <Zap className="w-4 h-4" />
+                  <span>Start AI Analysis</span>
                 </>
               )}
             </button>
+            
+            <div className="analysis-info">
+              <span className="analysis-stats">
+                {results.length} total analyses • {results.filter(r => r.detectedDefects.length > 0).length} with issues detected
+              </span>
+            </div>
           </div>
         </div>
       </div>
