@@ -9,6 +9,7 @@ import OptimizerAgent from './pages/OptimizerAgent';
 import Home from './pages/Home';
 import ComprehensiveDashboard from './pages/ComprehensiveDashboard';
 import DetectionLayer from './pages/DetectionLayer';
+import SafetyLayer from './pages/SafetyLayer';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/comprehensive" element={<ComprehensiveDashboard />} />
               <Route path="/defect-detector" element={<DefectDetector />} />
               <Route path="/detection-layer" element={<DetectionLayer />} />
+              <Route path="/safety-layer" element={<SafetyLayer />} />
               <Route path="/optimizer" element={<OptimizerAgent />} />
             </Routes>
           </main>
