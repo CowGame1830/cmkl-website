@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Blog.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764386662673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764386662673,
+            "name": "Commit-0",
+            "content": ".blog-page.light {\r\n  --bg-color: #ffffff;\r\n  --text-color: #333333;\r\n}\r\n\r\n.blog-page.dark {\r\n  --bg-color: #1a1a1a;\r\n  --text-color: #ffffff;\r\n}\r\n\r\n.blog-page {\r\n  min-height: 100vh;\r\n  background: var(--bg-color);\r\n  color: var(--text-color);\r\n  padding: 2rem 0;\r\n}\r\n\r\n.container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  padding: 0 2rem;\r\n}\r\n\r\n.page-header {\r\n  text-align: center;\r\n  margin-bottom: 3rem;\r\n}\r\n\r\n.page-header h1 {\r\n  font-size: 3rem;\r\n  font-weight: 800;\r\n  color: var(--text-color);\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.page-header p {\r\n  font-size: 1.2rem;\r\n  color: #666;\r\n  margin: 0;\r\n}\r\n\r\n.blog-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));\r\n  gap: 2rem;\r\n}\r\n\r\n/* Responsive Design */\r\n@media (max-width: 768px) {\r\n  .container {\r\n    padding: 0 1rem;\r\n  }\r\n  \r\n  .page-header h1 {\r\n    font-size: 2rem;\r\n  }\r\n  \r\n  .page-header p {\r\n    font-size: 1rem;\r\n  }\r\n  \r\n  .blog-grid {\r\n    grid-template-columns: 1fr;\r\n    gap: 1.5rem;\r\n  }\r\n}"
+        }
+    ]
+}

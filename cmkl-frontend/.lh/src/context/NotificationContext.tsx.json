@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/context/NotificationContext.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764425596111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764425596111,
+            "name": "Commit-0",
+            "content": "import React, { createContext, useContext, useState } from 'react';\r\nimport type { ReactNode } from 'react';\r\nimport type { Notification } from '../data/types';\r\nimport { notifications as mockNotifications } from '../data/mockData';\r\n\r\ninterface NotificationContextType {\r\n  notifications: Notification[];\r\n  unreadCount: number;\r\n  markAsRead: (id: string) => void;\r\n  markAllAsRead: () => void;\r\n  addNotification: (notification: Omit<Notification, 'id' | 'timestamp'>) => void;\r\n}\r\n\r\nconst NotificationContext = createContext<NotificationContextType | undefined>(undefined);\r\n\r\nexport const useNotifications = () => {\r\n  const context = useContext(NotificationContext);\r\n  if (context === undefined) {\r\n    throw new Error('useNotifications must be used within a NotificationProvider');\r\n  }\r\n  return context;\r\n};\r\n\r\ninterface NotificationProviderProps {\r\n  children: ReactNode;\r\n}\r\n\r\nexport const NotificationProvider: React.FC<NotificationProviderProps> = ({ children }) => {\r\n  const [notifications, setNotifications] = useState<Notification[]>(mockNotifications);\r\n\r\n  const unreadCount = notifications.filter(notif => !notif.read).length;\r\n\r\n  const markAsRead = (id: string) => {\r\n    setNotifications(prev => \r\n      prev.map(notif => \r\n        notif.id === id ? { ...notif, read: true } : notif\r\n      )\r\n    );\r\n  };\r\n\r\n  const markAllAsRead = () => {\r\n    setNotifications(prev => \r\n      prev.map(notif => ({ ...notif, read: true }))\r\n    );\r\n  };\r\n\r\n  const addNotification = (notification: Omit<Notification, 'id' | 'timestamp'>) => {\r\n    const newNotification: Notification = {\r\n      ...notification,\r\n      id: `notif-${Date.now()}`,\r\n      timestamp: new Date().toISOString(),\r\n    };\r\n    \r\n    setNotifications(prev => [newNotification, ...prev]);\r\n  };\r\n\r\n  const value: NotificationContextType = {\r\n    notifications,\r\n    unreadCount,\r\n    markAsRead,\r\n    markAllAsRead,\r\n    addNotification,\r\n  };\r\n\r\n  return (\r\n    <NotificationContext.Provider value={value}>\r\n      {children}\r\n    </NotificationContext.Provider>\r\n  );\r\n};"
+        }
+    ]
+}

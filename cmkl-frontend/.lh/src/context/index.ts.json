@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/context/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1764386662677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764425596239,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n // Export all context providers\r\n export { ThemeProvider, useTheme } from './ThemeContext';\r\n-export { CartProvider, useCart } from './CartContext';\n\\ No newline at end of file\n+export { CartProvider, useCart } from './CartContext';\r\n+export { NotificationProvider, useNotifications } from './NotificationContext';\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1764386662677,
+            "name": "Commit-0",
+            "content": "// Export all context providers\r\nexport { ThemeProvider, useTheme } from './ThemeContext';\r\nexport { CartProvider, useCart } from './CartContext';"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/data/types.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1764386662666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764425596224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,35 +1,72 @@\n-// Type definitions for the application\r\n+// Type definitions for AI Factory Dashboard\r\n export interface User {\r\n   id: number;\r\n   name: string;\r\n   email: string;\r\n   avatar: string;\r\n-  role: 'admin' | 'user' | 'moderator';\r\n+  role: 'admin' | 'operator' | 'supervisor';\r\n+  department: string;\r\n }\r\n \r\n-export interface Product {\r\n-  id: number;\r\n+export interface DefectDetection {\r\n+  id: string;\r\n+  prompt: string;\r\n+  imageUrl?: string;\r\n+  detectedDefects: Defect[];\r\n+  timestamp: string;\r\n+  confidence: number;\r\n+  status: 'processing' | 'completed' | 'failed';\r\n+}\r\n+\r\n+export interface Defect {\r\n+  id: string;\r\n+  type: string;\r\n+  description: string;\r\n+  severity: 'low' | 'medium' | 'high' | 'critical';\r\n+  location: { x: number; y: number; width: number; height: number };\r\n+  confidence: number;\r\n+}\r\n+\r\n+export interface Zone {\r\n+  id: string;\r\n   name: string;\r\n+  department: string;\r\n+  currentPersonnel: number;\r\n+  maxCapacity: number;\r\n+  status: 'normal' | 'warning' | 'critical';\r\n+  actions: Action[];\r\n+}\r\n+\r\n+export interface Action {\r\n+  id: string;\r\n+  type: 'entry' | 'exit' | 'task_start' | 'task_complete' | 'alert';\r\n+  personId: string;\r\n+  personName: string;\r\n+  timestamp: string;\r\n   description: string;\r\n-  price: number;\r\n-  image: string;\r\n-  category: string;\r\n-  inStock: boolean;\r\n+  zoneId: string;\r\n }\r\n \r\n-export interface BlogPost {\r\n-  id: number;\r\n+export interface Notification {\r\n+  id: string;\r\n+  type: 'info' | 'warning' | 'error' | 'success';\r\n   title: string;\r\n-  content: string;\r\n-  excerpt: string;\r\n-  author: string;\r\n-  publishDate: string;\r\n-  tags: string[];\r\n-  image: string;\r\n+  message: string;\r\n+  timestamp: string;\r\n+  read: boolean;\r\n+  priority: 'low' | 'medium' | 'high';\r\n }\r\n \r\n+export interface DashboardStats {\r\n+  totalPersonnel: number;\r\n+  activeZones: number;\r\n+  todayDefectsDetected: number;\r\n+  systemEfficiency: number;\r\n+  alertsToday: number;\r\n+}\r\n+\r\n export interface NavigationItem {\r\n   label: string;\r\n   path: string;\r\n-  icon?: string;\r\n+  icon: string;\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1764386662666,
+            "name": "Commit-0",
+            "content": "// Type definitions for the application\r\nexport interface User {\r\n  id: number;\r\n  name: string;\r\n  email: string;\r\n  avatar: string;\r\n  role: 'admin' | 'user' | 'moderator';\r\n}\r\n\r\nexport interface Product {\r\n  id: number;\r\n  name: string;\r\n  description: string;\r\n  price: number;\r\n  image: string;\r\n  category: string;\r\n  inStock: boolean;\r\n}\r\n\r\nexport interface BlogPost {\r\n  id: number;\r\n  title: string;\r\n  content: string;\r\n  excerpt: string;\r\n  author: string;\r\n  publishDate: string;\r\n  tags: string[];\r\n  image: string;\r\n}\r\n\r\nexport interface NavigationItem {\r\n  label: string;\r\n  path: string;\r\n  icon?: string;\r\n}"
+        }
+    ]
+}

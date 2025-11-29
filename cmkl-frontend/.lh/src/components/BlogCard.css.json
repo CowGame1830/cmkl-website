@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/BlogCard.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764386662669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764386662669,
+            "name": "Commit-0",
+            "content": ".blog-card {\r\n  background: #ffffff;\r\n  border-radius: 12px;\r\n  overflow: hidden;\r\n  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\r\n  transition: transform 0.2s ease, box-shadow 0.2s ease;\r\n  height: 100%;\r\n  display: flex;\r\n  flex-direction: column;\r\n}\r\n\r\n.blog-card:hover {\r\n  transform: translateY(-4px);\r\n  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);\r\n}\r\n\r\n.blog-image {\r\n  aspect-ratio: 16/9;\r\n  overflow: hidden;\r\n}\r\n\r\n.blog-image img {\r\n  width: 100%;\r\n  height: 100%;\r\n  object-fit: cover;\r\n  transition: transform 0.3s ease;\r\n}\r\n\r\n.blog-card:hover .blog-image img {\r\n  transform: scale(1.05);\r\n}\r\n\r\n.blog-content {\r\n  padding: 1.5rem;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-grow: 1;\r\n}\r\n\r\n.blog-meta {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  margin-bottom: 1rem;\r\n  font-size: 0.9rem;\r\n  color: #666;\r\n}\r\n\r\n.blog-author {\r\n  font-weight: 500;\r\n}\r\n\r\n.blog-date {\r\n  color: #999;\r\n}\r\n\r\n.blog-title {\r\n  margin: 0 0 1rem 0;\r\n  font-size: 1.5rem;\r\n  font-weight: 700;\r\n  color: #333;\r\n  line-height: 1.3;\r\n}\r\n\r\n.blog-excerpt {\r\n  margin: 0 0 1.5rem 0;\r\n  color: #666;\r\n  line-height: 1.6;\r\n  flex-grow: 1;\r\n}\r\n\r\n.blog-tags {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  gap: 0.5rem;\r\n  margin-bottom: 1.5rem;\r\n}\r\n\r\n.blog-tag {\r\n  background: #e3f2fd;\r\n  color: #1976d2;\r\n  padding: 0.25rem 0.75rem;\r\n  border-radius: 20px;\r\n  font-size: 0.8rem;\r\n  font-weight: 500;\r\n}\r\n\r\n.read-more-btn {\r\n  background: none;\r\n  color: #007bff;\r\n  border: 2px solid #007bff;\r\n  padding: 0.75rem 1.5rem;\r\n  border-radius: 8px;\r\n  font-size: 1rem;\r\n  font-weight: 600;\r\n  cursor: pointer;\r\n  transition: all 0.2s ease;\r\n  align-self: flex-start;\r\n}\r\n\r\n.read-more-btn:hover {\r\n  background: #007bff;\r\n  color: white;\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.read-more-btn:active {\r\n  transform: translateY(0);\r\n}\r\n\r\n/* Dark theme support */\r\n.dark .blog-card {\r\n  background: #2a2a2a;\r\n  color: #ffffff;\r\n}\r\n\r\n.dark .blog-title {\r\n  color: #ffffff;\r\n}\r\n\r\n.dark .blog-excerpt {\r\n  color: #cccccc;\r\n}\r\n\r\n.dark .blog-meta {\r\n  color: #aaaaaa;\r\n}\r\n\r\n.dark .blog-date {\r\n  color: #888888;\r\n}\r\n\r\n.dark .blog-tag {\r\n  background: #3a5998;\r\n  color: #e3f2fd;\r\n}"
+        }
+    ]
+}

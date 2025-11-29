@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/LoadingSpinner.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764387732129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764387732129,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\n\r\ninterface LoadingSpinnerProps {\r\n  size?: 'sm' | 'md' | 'lg';\r\n  className?: string;\r\n}\r\n\r\nconst LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ \r\n  size = 'md', \r\n  className = '' \r\n}) => {\r\n  const sizeClasses = {\r\n    sm: 'w-4 h-4',\r\n    md: 'w-8 h-8',\r\n    lg: 'w-12 h-12'\r\n  };\r\n\r\n  return (\r\n    <div className={`inline-block animate-spin rounded-full border-2 border-current border-t-transparent ${sizeClasses[size]} ${className}`}>\r\n      <span className=\"sr-only\">Loading...</span>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default LoadingSpinner;"
+        }
+    ]
+}

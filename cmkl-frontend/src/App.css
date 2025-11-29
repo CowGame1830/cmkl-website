@@ -1,0 +1,17 @@
+/* App-specific styles that work with Tailwind */
+.app {
+  @apply min-h-screen flex flex-col;
+}
+
+.main-content {
+  @apply flex-1;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Global body and html styling for consistent max-width layout */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+}

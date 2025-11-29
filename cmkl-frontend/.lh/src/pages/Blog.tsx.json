@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/pages/Blog.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764386662680,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764386662680,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { useTheme } from '../context/ThemeContext';\r\nimport { blogPosts } from '../data/mockData';\r\nimport BlogCard from '../components/BlogCard';\r\nimport './Blog.css';\r\n\r\nconst Blog: React.FC = () => {\r\n  const { theme } = useTheme();\r\n\r\n  return (\r\n    <div className={`blog-page ${theme}`}>\r\n      <div className=\"container\">\r\n        <div className=\"page-header\">\r\n          <h1>Our Blog</h1>\r\n          <p>Stay updated with the latest insights, tutorials, and industry news</p>\r\n        </div>\r\n\r\n        <div className=\"blog-grid\">\r\n          {blogPosts.map(post => (\r\n            <BlogCard key={post.id} post={post} />\r\n          ))}\r\n        </div>\r\n      </div>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Blog;"
+        }
+    ]
+}

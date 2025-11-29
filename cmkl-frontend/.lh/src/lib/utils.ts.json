@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/lib/utils.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764387732077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764387732077,
+            "name": "Commit-0",
+            "content": "import { clsx, type ClassValue } from 'clsx';\r\n\r\n/**\r\n * Utility function to combine class names conditionally\r\n * Uses clsx for better conditional class handling\r\n */\r\nexport function cn(...inputs: ClassValue[]) {\r\n  return clsx(inputs);\r\n}\r\n\r\n/**\r\n * Utility function to format currency\r\n */\r\nexport function formatCurrency(amount: number): string {\r\n  return new Intl.NumberFormat('en-US', {\r\n    style: 'currency',\r\n    currency: 'USD',\r\n  }).format(amount);\r\n}\r\n\r\n/**\r\n * Utility function to format dates\r\n */\r\nexport function formatDate(date: string | Date): string {\r\n  return new Intl.DateTimeFormat('en-US', {\r\n    year: 'numeric',\r\n    month: 'long',\r\n    day: 'numeric',\r\n  }).format(new Date(date));\r\n}\r\n\r\n/**\r\n * Utility function to truncate text\r\n */\r\nexport function truncateText(text: string, maxLength: number): string {\r\n  if (text.length <= maxLength) return text;\r\n  return text.slice(0, maxLength) + '...';\r\n}\r\n\r\n/**\r\n * Utility function to generate a random ID\r\n */\r\nexport function generateId(): string {\r\n  return Math.random().toString(36).substr(2, 9);\r\n}"
+        }
+    ]
+}

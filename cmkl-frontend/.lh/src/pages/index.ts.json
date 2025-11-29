@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/index.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1764386662677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1764425267304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n // Export all pages from this index file\r\n+export { default as Dashboard } from './Dashboard';\r\n+export { default as DefectDetector } from './DefectDetector';\r\n+export { default as OptimizerAgent } from './OptimizerAgent';\r\n export { default as Home } from './Home';\r\n-export { default as Products } from './Products';\r\n\\ No newline at end of file\n-export { default as Blog } from './Blog';\r\n-export { default as Cart } from './Cart';\r\n-export { default as About } from './About';\n"
+                }
+            ],
+            "date": 1764386662677,
+            "name": "Commit-0",
+            "content": "// Export all pages from this index file\r\nexport { default as Home } from './Home';\r\nexport { default as Products } from './Products';\r\nexport { default as Blog } from './Blog';\r\nexport { default as Cart } from './Cart';\r\nexport { default as About } from './About';"
+        }
+    ]
+}

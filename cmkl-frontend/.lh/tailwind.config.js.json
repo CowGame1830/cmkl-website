@@ -1,0 +1,18 @@
+{
+    "sourceFile": "tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1764387732077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1764387732077,
+            "name": "Commit-0",
+            "content": "/** @type {import('tailwindcss').Config} */\r\nexport default {\r\n  content: [\r\n    \"./index.html\",\r\n    \"./src/**/*.{js,ts,jsx,tsx}\",\r\n  ],\r\n  theme: {\r\n    extend: {\r\n      colors: {\r\n        primary: {\r\n          50: '#eff6ff',\r\n          100: '#dbeafe',\r\n          200: '#bfdbfe',\r\n          300: '#93c5fd',\r\n          400: '#60a5fa',\r\n          500: '#3b82f6',\r\n          600: '#2563eb',\r\n          700: '#1d4ed8',\r\n          800: '#1e40af',\r\n          900: '#1e3a8a',\r\n        },\r\n        gray: {\r\n          50: '#f9fafb',\r\n          100: '#f3f4f6',\r\n          200: '#e5e7eb',\r\n          300: '#d1d5db',\r\n          400: '#9ca3af',\r\n          500: '#6b7280',\r\n          600: '#4b5563',\r\n          700: '#374151',\r\n          800: '#1f2937',\r\n          900: '#111827',\r\n        }\r\n      },\r\n      fontFamily: {\r\n        sans: ['Inter', 'system-ui', 'sans-serif'],\r\n      },\r\n      animation: {\r\n        'fade-in': 'fadeIn 0.5s ease-in-out',\r\n        'slide-in': 'slideIn 0.3s ease-out',\r\n        'bounce-light': 'bounceLight 2s infinite',\r\n      },\r\n      keyframes: {\r\n        fadeIn: {\r\n          '0%': { opacity: '0', transform: 'translateY(10px)' },\r\n          '100%': { opacity: '1', transform: 'translateY(0)' },\r\n        },\r\n        slideIn: {\r\n          '0%': { transform: 'translateX(-100%)' },\r\n          '100%': { transform: 'translateX(0)' },\r\n        },\r\n        bounceLight: {\r\n          '0%, 100%': { transform: 'translateY(0)' },\r\n          '50%': { transform: 'translateY(-5px)' },\r\n        }\r\n      },\r\n      boxShadow: {\r\n        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',\r\n        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',\r\n        'strong': '0 10px 40px -10px rgba(0, 0, 0, 0.2)',\r\n      }\r\n    },\r\n  },\r\n  plugins: [\r\n    require('@tailwindcss/forms'),\r\n    require('@tailwindcss/typography'),\r\n  ],\r\n  darkMode: 'class',\r\n}"
+        }
+    ]
+}
