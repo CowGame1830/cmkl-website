@@ -7,7 +7,7 @@ import {
   scheduleData,
   dataSimulator 
 } from '../data';
-import type { MachineStatus } from '../data/types';
+
 import { 
   Activity, 
   Zap, 
@@ -49,7 +49,7 @@ const RealTimeMetrics: React.FC<RealTimeMetricsProps> = ({ className }) => {
     };
   }, []);
 
-  const getStatusIcon = (status: MachineStatus['status']) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
       case 'running': return <CheckCircle className="w-4 h-4 text-green-600" />;
       case 'warning': return <AlertTriangle className="w-4 h-4 text-yellow-600" />;
@@ -60,7 +60,7 @@ const RealTimeMetrics: React.FC<RealTimeMetricsProps> = ({ className }) => {
     }
   };
 
-  const getStatusColor = (status: MachineStatus['status']) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case 'running': return 'bg-green-100 text-green-800';
       case 'warning': return 'bg-yellow-100 text-yellow-800';
@@ -340,7 +340,7 @@ const RealTimeMetrics: React.FC<RealTimeMetricsProps> = ({ className }) => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .real-time-metrics {
           padding: 1rem;
           background: #f8fafc;

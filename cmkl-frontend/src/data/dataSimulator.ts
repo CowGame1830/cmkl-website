@@ -3,25 +3,17 @@ import {
   recentActions, 
   notifications, 
   dashboardStats,
-  defectDetections,
-  productionMetrics,
   machineStatus,
   energyData
 } from './mockData';
 import type { 
-  Zone, 
   Action, 
-  Notification, 
-  DashboardStats,
-  DefectDetection,
-  ProductionMetrics,
-  MachineStatus,
-  EnergyData
+  Notification 
 } from './types';
 
 // Simulate real-time data updates
 export class DataSimulator {
-  private updateInterval: NodeJS.Timeout | null = null;
+  private updateInterval: number | null = null;
   private listeners: Array<() => void> = [];
 
   start() {

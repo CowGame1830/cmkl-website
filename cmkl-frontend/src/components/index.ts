@@ -4,6 +4,3 @@ export { default as Footer } from './Footer';
 export { default as NotificationDropdown } from './NotificationDropdown';
 export { default as ScrollToTop } from './ScrollToTop';
 export { default as RealTimeMetrics } from './RealTimeMetrics';
-export { default as ProductCard } from './ProductCard';
-export { default as BlogCard } from './BlogCard';
-export { default as LoadingSpinner } from './LoadingSpinner';
